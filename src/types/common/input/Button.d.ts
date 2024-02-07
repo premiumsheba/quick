@@ -1,6 +1,5 @@
 import { ButtonProps } from "@mui/material";
-
-export default interface CustomButtonProps extends ButtonProps {
+export default interface CustomButtonPropsType extends ButtonProps {
   p?: number;
   pt?: number;
   pb?: number;
@@ -11,5 +10,14 @@ export default interface CustomButtonProps extends ButtonProps {
   mb?: number;
   ml?: number;
   mr?: number;
+  s?: "small" | "medium" | "large";
+  cl?:
+    | "inherit"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "error"
+    | "info"
+    | "warning";
   type?: "text" | "contained" | "outlined";
 }

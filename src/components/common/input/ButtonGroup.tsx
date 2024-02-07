@@ -1,8 +1,8 @@
 import React from "react";
-import { Button as MUIButton } from "@mui/material";
-import CustomButtonPropsType from "@/types/common/input/Button";
+import CustomButtonGroupPropType from "@/types/common/input/ButtonGroup";
+import { ButtonGroup as MUIButtonGroup } from "@mui/material";
 
-export const Button: React.FC<CustomButtonPropsType> = ({
+export const ButtonGroup: React.FC<CustomButtonGroupPropType> = ({
   style,
   p,
   pt,
@@ -14,9 +14,9 @@ export const Button: React.FC<CustomButtonPropsType> = ({
   mb,
   ml,
   mr,
+  type,
   s,
   cl,
-  type,
   ...rest
 }) => {
   const buttonStyle: React.CSSProperties = {
@@ -30,12 +30,18 @@ export const Button: React.FC<CustomButtonPropsType> = ({
     marginBottom: mb,
     marginLeft: ml,
     marginRight: mr,
-    ...style, // if needed in future
+    ...style,
   };
 
   return (
-    <MUIButton style={buttonStyle} size={s} color={cl} variant={type} {...rest}>
+    <MUIButtonGroup
+      style={buttonStyle}
+      variant={type}
+      size={s}
+      color={cl}
+      {...rest}
+    >
       {rest.children}
-    </MUIButton>
+    </MUIButtonGroup>
   );
 };

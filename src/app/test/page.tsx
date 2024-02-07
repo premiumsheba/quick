@@ -1,8 +1,9 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const About = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<[] | null>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -12,7 +13,6 @@ const About = () => {
         const response = await axios.get("https://dummyjson.com/products");
         setData(response.data.products);
       } catch (error) {
-        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -33,7 +33,7 @@ const About = () => {
 
   return (
     <div>
-      <h1>About Project</h1>
+      <h1>This is inside App</h1>
       <p>This is ScienceBeeee</p>
       {data && (
         <div>
@@ -47,7 +47,7 @@ const About = () => {
               </tr>
             </thead>
             <tbody>
-              {data?.map((item) => (
+              {data?.map((item: any) => (
                 <tr key={item.id}>
                   <td>{item.brand}</td>
                   <td>{item.category}</td>
